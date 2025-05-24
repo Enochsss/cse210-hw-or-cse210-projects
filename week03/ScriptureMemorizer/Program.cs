@@ -1,3 +1,6 @@
+// my method HideRandomWords randomly hides a number of words in the scripture 
+// text, but only if they are not already hidden.
+
 using System;
 
 class Program
