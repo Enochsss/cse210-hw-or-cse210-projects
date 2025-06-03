@@ -27,9 +27,4 @@ public class Product
     {
         return _productId;
     }
-
-    // public string GetDisplayText()
-    // {
-    //     return $"{_name} (ID: {_productId}) - Price: {_pricePerUnit:C}, Quantity: {_quantity}, Total Cost: {GetTotalCost():C}";
-    // }
 }
