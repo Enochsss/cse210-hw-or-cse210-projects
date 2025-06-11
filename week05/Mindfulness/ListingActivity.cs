@@ -1,10 +1,12 @@
+using System.Threading.Tasks;
+
 public class ListingActivity : Activity
 {
     private int _count;
     private List<string> _prompts;
 
     public ListingActivity()
-        : base("Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
+        : base("Listing Activity.", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
     {
         _count = 0;
         _prompts = new List<string>
@@ -22,7 +24,10 @@ public class ListingActivity : Activity
         DisplayStartingMessage();
 
         string prompt = GetRandomPrompt();
-        Console.WriteLine($"List as many items as you can in response to the following prompt:\n{prompt}\n");
+        Console.WriteLine($"List as many items as you can in response to the following prompt:");
+        Console.Clear();
+        Console.WriteLine($"--- {prompt} ---");
+        Console.WriteLine();
         Console.WriteLine($"You may begin in:");
         ShowCountdown(6);
         _count = 0;
@@ -40,20 +45,19 @@ public class ListingActivity : Activity
 
     private void GetListFromUser()
     {
-        Console.WriteLine("Please enter your items (type 'done' to finish):");
-        string input;
-        while ((input = Console.ReadLine())?.ToLower() != "done")
+        Console.WriteLine("Please enter your items:");
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_duration);
+
+        while (DateTime.Now < endTime)
         {
-            if (!string.IsNullOrWhiteSpace(input))
+            Console.Write("> ");
+            string item = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(item))
             {
-                _count++;
-                Console.WriteLine($"Item added: {input}");
+                break;
             }
-            else
-            {
-                Console.WriteLine("Please enter a valid item or type 'done' to finish.");
-            }
+            _count++;
         }
-        Console.WriteLine($"You listed {_count} items.");
     }
 }

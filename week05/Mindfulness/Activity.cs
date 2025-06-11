@@ -26,36 +26,38 @@ public abstract class Activity
             input = Console.ReadLine();
         }
         Console.Clear();
-        Console.WriteLine($"Great! Your {_activityName} will last for {_duration} seconds.");
+        Console.WriteLine($"Great! Your {_activityName}\b will last for {_duration} seconds.");
         ShowSpinner(6);
     }
 
     public void DisplayEndingMessage()
     {
-        Console.Clear();
+        Console.WriteLine();
         Console.WriteLine("Well done!");
-        Console.WriteLine($"You have completed the {_activityName}.");
+        ShowSpinner(6);
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_activityName}");
+        ShowSpinner(6);
         Console.WriteLine("Thank you for participating!");
         ShowSpinner(6);
     }
 
     public void ShowSpinner(int duration)
     {
-        Console.Write("Loading");
+        Console.WriteLine();
         for (int i = 0; i < duration; i++)
         {
             Console.Write("/");
-            Thread.Sleep(900);
+            Thread.Sleep(300);
             Console.Write("\b");
             Console.Write("-");
-            Thread.Sleep(900);
+            Thread.Sleep(300);
             Console.Write("\b");
             Console.Write("\\");
-            Thread.Sleep(900);
+            Thread.Sleep(300);
             Console.Write("\b");
             Console.Write("|");
-            Thread.Sleep(900);
-            Console.Write("\b");
+            Thread.Sleep(300);
+            Console.Write("\b \b");
         }
         Console.WriteLine();
     }
@@ -66,7 +68,7 @@ public abstract class Activity
         {
             Console.Write(i);
             System.Threading.Thread.Sleep(1000);
-            Console.Write("\b");
+            Console.Write("\b \b");
         }
     }
     public abstract void Run();

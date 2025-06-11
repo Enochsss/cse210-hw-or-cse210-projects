@@ -3,7 +3,7 @@ public class ReflectingActivity : Activity
     private List<string> _prompts;
     private List<string> _questions;
 
-    public ReflectingActivity() : base("Reflecting Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life."
+    public ReflectingActivity() : base("Reflecting Activity.", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life."
     )
     {
         _prompts = new List<string>
@@ -46,21 +46,22 @@ public class ReflectingActivity : Activity
         DisplayStartingMessage();
 
         string prompt = GetRandomPrompt();
-        Console.WriteLine($"Reflect on the following prompt:\n{prompt}\n");
-        Console.WriteLine("When you have something in mind, press Enter to continue...");
+        Console.WriteLine($"Reflect on the following prompt:");
+        Console.WriteLine();
+        Console.WriteLine($"--- {prompt} ---");
+        Console.WriteLine();
+        Console.WriteLine("When you have something in mind, press Enter to continue.");
         Console.ReadLine();
         Console.WriteLine("Now, take a moment to reflect on your thoughts.\n");
         ShowCountdown(6);
-        Console.Clear();
+        Console.WriteLine();
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_duration);
         while (DateTime.Now < endTime)
         {
             string question = GetRandomQuestion();
             Console.WriteLine($"> {question}");
-            Console.WriteLine("Take a moment to think about your answer.");
             ShowCountdown(6);
-            Console.Clear();
         }
         DisplayEndingMessage();
     }
