@@ -8,7 +8,7 @@ public abstract class Activity
     {
         _activityName = activityName;
         _description = description;
-        _duration = 0; // Default duration
+        _duration = 0;
     }
 
     public void DisplayStartingMessage()
