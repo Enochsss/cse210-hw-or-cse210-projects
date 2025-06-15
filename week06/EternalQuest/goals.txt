@@ -1,0 +1,4 @@
+Score:0
+SimpleGoal:Zerar final 1,zerar finais da paulinha,50,0
+EternalGoal:Visit the Temple,Perform ordinances for the dead,100
+ChecklistGoal:PatatiPatata,Ir ao circo 2x ao mês,15,0,2,75
